@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Complete JavaScript Course</title>
+</head>
+
+<body>
+	<div id="output"></div>
+    <script>
+		var html;
+        var player = prompt("Rock, paper or scissor?");
+		var pc = Math.floor(Math.random()*3);
+		if(player == "rock"){
+			if(pc == 0)
+				html = "Rock, draw";
+			else if(pc == 1)
+				html = "Paper, you lose";
+			else if(pc == 2)
+				html = "Scissor, you win";
+		}
+		else if(player == "paper"){
+			if(pc == 0)
+				html = "Rock, you win";
+			else if(pc == 1)
+				html = "Paper, draw";
+			else if(pc == 2)
+				html = "Scissor, you lose";
+		}
+		else{
+			if(pc == 0)
+				html = "Rock, you lose";
+			else if(pc == 1)
+				html = "Paper, you win";
+			else if(pc == 2)
+				html = "Scissor, draw";
+		}
+		var result = document.getElementById("output");
+		result.innerHTML = html;
+    </script>
+</body>
+
+</html>

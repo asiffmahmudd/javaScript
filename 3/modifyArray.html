@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <script>
+        /*
+        var animals = ["cat","dog","rabbit","bird","fish","zebra"];
+        animals.push("sheep"); 
+        var remove1 = animals.pop();
+        
+        animals.shift(); 
+        animals.unshift("horse");
+        
+        animals.splice(2,1); 
+        */
+        
+        var animals = ["cat","dog","rabbit","bird","fish","zebra"];
+        var startVal = animals.length;
+        console.log(startVal);
+        animals[20] = "horse";
+        animals.fill("mouse",startVal , (animals.length-1));
+        
+        
+        //animals.sort(); 
+        //animals.reverse(); 
+        //animals.sort().reverse();
+        
+        
+        
+        console.log(animals);
+        
+    </script>
+</body>
+
+</html>

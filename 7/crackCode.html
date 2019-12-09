@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Complete JavaScript Course</title>
+</head>
+
+<body>
+	Code:
+	<input type="text" id="code1">
+	<input type="text" id="code2">
+	<input type="text" id="code3">
+    <br><br>
+	<input type="button" onClick="crack()" value="Try code">
+    <br>
+	<div id="output"></div>
+	
+	<script>
+    
+	var output = document.getElementById("output");
+	var one = document.getElementById("code1");
+	var two = document.getElementById("code2");
+	var three = document.getElementById("code3");
+	var code = [];
+	for(var x = 0; x < 3; x++){
+		code[x] = Math.floor(Math.random()*9);
+	}
+	
+    function crack(){
+		var print = "";
+		var guess = [one.value, two.value, three.value];
+		if(Number(one.value) == code[0] && Number(two.value) == code[1] && Number(three.value) == code[2]){
+			print = code[0]+""+code[1]+""+code[2] +" You got it correct."
+		}
+		else{
+			if(Number(guess[0]) > code[0]) print += "L";
+			else if(Number(guess[0]) < code[0]) print += "H";
+			else print += guess[0];
+			if(Number(guess[1]) > code[1]) print += "L";
+			else if(Number(guess[1]) < code[1]) print += "H";
+			else print += guess[1];
+			if(Number(guess[2]) > code[2]) print += "L";
+			else if(Number(guess[2]) < code[2]) print += "H";
+			else print += guess[2];
+		}
+		output.innerHTML += print +"<br>";
+	}
+	
+    </script>
+</body>
+
+</html>
