@@ -11,6 +11,18 @@ jQuery(document).keypress(function(){
 	}
 });
 
+function restart(x){
+	level = 1;
+	pattern = [];
+	inputTime = 500;
+	var start = x;
+	jQuery(document).keypress(function(){
+		if(start == 0){
+		 	start++;
+			startGame();
+		}
+	});
+}	
 
 function startGame(){
 	
@@ -66,5 +78,53 @@ function showPattern(s){
 	}, 300);
 }
 
+function makeSound(s){
+	var audio = new Audio('sounds/'+s+'.mp3');
+	audio.play();
+}
 
+function gameOver(){
+	jQuery('.btn').off('click');
+	makeSound('wrong');
+	jQuery('body').addClass('game-over');
+	setTimeout(function(){
+		jQuery('body').removeClass('game-over');
+	},200);
+	jQuery('#level-title').text('Game over. Press any key to restart.');
+	restart(0);
+}
 
+function takeUserInput(){
+	var userPattern = [];
+	var clicked = 0;
+	var x = -1;
+	jQuery('.btn').on('click',function(){
+		showPattern(this.id);
+		
+		if(this.id == 'red'){
+			x = 0;
+		}
+		else if(this.id == 'green'){
+			x = 1;
+		}
+		else if(this.id == 'blue'){
+			x = 2;
+		}
+		else if(this.id == 'yellow'){
+			x = 3;
+		}
+		
+		if(pattern[clicked] != x){
+			gameOver();
+		}
+		else{
+			clicked++;
+			if(clicked == pattern.length){
+				jQuery('.btn').off('click');
+				setTimeout(function(){
+					startGame();
+				}, 500);
+			}
+		}
+	});	
+}
