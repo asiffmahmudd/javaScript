@@ -40,7 +40,6 @@ function buildPattern(){
 	var random = Math.floor(Math.random()*4);
 	pattern.push(random);
 	var x = 0;
-	console.log(pattern);
 	for(var i = 0; i < pattern.length; i++){
 		x = pattern[i];
 		if(x == 0){
